@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:week_11/main.dart';
 
-
 class MyApp extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
@@ -60,7 +59,7 @@ class _MyAppState extends State<MyApp> {
                 ),
               ),
               SizedBox(height: 30),
-
+              // ganti tema
               Container(
                 padding: EdgeInsets.all(16),
                 decoration: BoxDecoration(
@@ -84,8 +83,113 @@ class _MyAppState extends State<MyApp> {
                   ],
                 ),
               ),
+
+              SizedBox(height: 20),
+
+              TextField(
+                onChanged: updateName,
+                decoration: InputDecoration(
+                  labelText: 'Ubah Nama',
+                  labelStyle: TextStyle(color: settings.textColor),
+                  border: OutlineInputBorder(),
+                  filled: true,
+                  fillColor: settings.isDarkMode
+                      ? Colors.grey[800]
+                      : Colors.grey[100],
+                ),
+                style: TextStyle(color: settings.textColor),
+              ),
+
+              SizedBox(height: 20),
+
+              Container(
+                padding: EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: settings.isDarkMode
+                      ? Colors.blueGrey[800]
+                      : Colors.blue[50],
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Column(
+                  children: [
+                    Text(
+                      'Ukuran Font: ${settings.fontSize}',
+                      style: TextStyle(color: settings.textColor, fontSize: 16),
+                    ),
+                    SizedBox(height: 10),
+                  ],
+                ),
+              ),
+              SizedBox(height: 10),
+
+              // ukuran font
+              Container(
+                padding: EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: settings.isDarkMode
+                      ? Colors.blueGrey[800]
+                      : Colors.blue[50],
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Column(
+                  children: [
+                    Text(
+                      'Ukuran Font : ${settings.fontSize}',
+                      style: TextStyle(color: settings.textColor, fontSize: 16),
+                    ),
+                    SizedBox(height: 10),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        IconButton(
+                          onPressed: decreaseFont,
+                          icon: Icon(
+                            Icons.remove_circle,
+                            color: settings.textColor,
+                          ),
+                        ),
+
+                        SizedBox(width: 20),
+
+                        IconButton(
+                          onPressed: increaseFont,
+                          icon: Icon(
+                            Icons.add_circle,
+                            color: settings.textColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+
+              SizedBox(height: 20),
+
+              Container(
+                padding: EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: settings.textColor.withOpacity(0.3),
+                  ),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Text(
+                  'Ini adalah preview text dengan ukuran font ${settings.fontSize}',
+                  style: TextStyle(
+                    fontSize: settings.fontSize.toDouble(),
+                    color: settings.textColor,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
             ],
           ),
+        ),
+        floatingActionButton: FloatingActionButton(onPressed: toggleTheme,
+        child: Icon(settings.isDarkMode ? Icons.light_mode : Icons.dark_mode),
+        backgroundColor: settings.isDarkMode ? Colors.blueGrey[800] : Colors.blue,
         ),
       ),
     );
