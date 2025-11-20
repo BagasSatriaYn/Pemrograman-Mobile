@@ -1,6 +1,7 @@
+
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user.dart';
+part of 'User.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
@@ -26,3 +27,4 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
   'email': instance.email,
   'createdAt': User._dateTimeToJson(instance.createdAt),
 };
+  
