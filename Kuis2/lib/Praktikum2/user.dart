@@ -21,9 +21,9 @@ class User {
     this.createdAt,
   });
 
-  /// FROM JSON (pakai generator)
+  /// FROM JSON
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
-  /// TO JSON (pakai generator)
+  /// TO JSON
   Map<String, dynamic> toJson() => _$UserToJson(this);
 }
